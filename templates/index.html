@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+     <h1>welcome, {{session.username}}</h1>
+     <h3>You are now logged in</h3>
+     <br>
+     <br>
+     <br>
+     <a href="{{url_for('logout')}}">Logout</a>
+     <br>
+    </div>
+    <!-- <h1>welcome, {{session.username}}</h1>
+    <P>You are now logged in</P>
+    <br>
+    <a href="{{url_for('logout')}}">Logout</a>
+     -->
+    
+</body>
+</html>

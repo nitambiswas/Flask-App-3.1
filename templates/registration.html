@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <div><h1>Registration</h1></div>
+        <div>
+           <form action="{{url_for('registration')}}" method = "post">
+              <div class="msg">{{ msg }}</div>
+              <input type="text" name="username" placeholder="USERNAME">
+              <br>
+              <input type="password" name="password" placeholder="PASSWORD">
+              <br>
+              <input type="text" name="email" placeholder="EMAIL">
+              <br>
+              <button type="submit">Submit</button>
+              <br>
+              <br>
+           </form>
+        </div>
+        <div><p>Already have an account, <a href="{{url_for('login')}}">Login</a></p></div>
+    </div>
+    
+
+    <!-- <h1>Registration</h1>
+
+    <form action="{{url_for('registration')}}" method = "post">
+        
+        <div>{{ msg }}</div>
+
+        <input type="text" name="username" placeholder="USERNAME">
+        <br>
+        <input type="password" name="password" placeholder="PASSWORD">
+        <br>
+        <input type="text" name="email" placeholder="EMAIL">
+        <br>
+        <button type="submit">Submit</button>
+        <br>
+        <br>
+        <p>Already have an account, <a href="{{url_for('login')}}">Login</a></p>
+
+    </form> -->
+    
+</body>
+</html>
