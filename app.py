@@ -2,16 +2,17 @@ from flask import Flask, request, render_template, session, url_for, redirect
 import mysql.connector
 import re
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
 
 app = Flask(__name__)
-app.secret_key = "supersecret"
+app.secret_key = os.environ.get("SECRET_KEY", "dev-secret")
 
 db = mysql.connector.connect(
-    host="maglev.proxy.rlwy.net",
-    user="root",
-    password="CyfgvyOzUlbbZpCnqfVTteocosJJslff",
-    database="railway",
-    port=50473
+    host=os.environ.get("MYSQLHOST", "maglev.proxy.rlwy.net"),
+    user=os.environ.get("MYSQLUSER", "root"),
+    password=os.environ.get("MYSQLPASSWORD", "CyfgvyOzUlbbZpCnqfVTteocosJJslff"),
+    database=os.environ.get("MYSQLDATABASE", "railway"),
+    port=int(os.environ.get("MYSQLPORT", 50473))
 )
 
 cursor = db.cursor()
@@ -107,4 +108,4 @@ def registration():
     return render_template("registration.html", msg=msg)
 
 if __name__ == "__main__":
- app.run(debug=True)
+ app.run()
