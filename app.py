@@ -12,7 +12,7 @@ db = mysql.connector.connect(
     user=os.environ.get("MYSQLUSER", "root"),
     password=os.environ.get("MYSQLPASSWORD", "CyfgvyOzUlbbZpCnqfVTteocosJJslff"),
     database=os.environ.get("MYSQLDATABASE", "railway"),
-    port=int(os.environ.get("MYSQLPORT", 50473))
+    port=int(os.environ.get("PORT", 5000))
 )
 
 cursor = db.cursor()
